@@ -8,9 +8,4 @@ const connection = mysql.createConnection({
 });
 
 
-connection.connect((error) =>{
-    if(error) throw error;
-    console.log('cenectado ao banco de dados ${process.env.DB_NAME}' )
-}  );
-
 module.exports = connection;
