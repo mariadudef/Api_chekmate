@@ -18,21 +18,18 @@ module.exports= class clienteController {
         let nome = req.body.nome;
         let email = req.body.email;
         let senha = req.body.senha;
-        if(nome && email && senha){
-            const query = 'INSERT into cliente  (nome,email,senha) values (nome,email,senha)';
-            conection.query(query, function(err, data){
+    
+    const query = `INSERT INTO cliente  (nome,email,senha) VALUES ('${nome}','${email}','${senha}')`
+            conection.query(query, function(err){
                 if(err){
                     console.log(err)
                     return
                 }
-                const usuario = data
-                return res.status(200).json(usario)
+               
+                res.status(200).json(usario)
     
             })
-        }else{
-            console.log('erro')
-        }
-
+        
 
 }
 }
